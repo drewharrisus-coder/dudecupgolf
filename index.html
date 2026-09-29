@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>THE 6TH ANNUAL DUDE CUP — BATTLE BY THE BAY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#D6CBB4;
+  --paper-hi:#E3DAC6;
+  --ink:#181510;
+  --redact:#0D0B08;
+  --stamp:#9E2B20;
+  --faded:#6A6053;
+  --rule:rgba(24,21,16,.22);
+  --stencil:"Stardos Stencil",Impact,sans-serif;
+  --type:"Courier Prime",ui-monospace,monospace;
+  --elite:"Special Elite",cursive;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#221E17;--paper-hi:#2C2720;--ink:#DCD2BE;
+    --redact:#000;--stamp:#C9483A;--faded:#8A7F6D;--rule:rgba(220,210,190,.2);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#221E17;--paper-hi:#2C2720;--ink:#DCD2BE;
+  --redact:#000;--stamp:#C9483A;--faded:#8A7F6D;--rule:rgba(220,210,190,.2);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--type);font-size:16px;line-height:1.65;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(0,0,0,.05) 0 1px, transparent 1px),
+    radial-gradient(circle at 63% 71%, rgba(0,0,0,.045) 0 1px, transparent 1px),
+    radial-gradient(circle at 87% 34%, rgba(0,0,0,.04) 0 1px, transparent 1px);
+  background-size:140px 140px,190px 190px,110px 110px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+:focus-visible{outline:3px solid var(--stamp);outline-offset:3px}
+
+/* ---- stamps & labels ---- */
+.label{
+  font-family:var(--elite);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--faded);margin:0 0 12px;
+}
+.stamp{
+  display:inline-block;font-family:var(--stencil);font-weight:700;
+  font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--stamp);border:3px solid var(--stamp);padding:6px 12px;
+  transform:rotate(-3deg);opacity:.85;
+}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+.dbl{border:0;border-top:3px double var(--rule);margin:0}
+
+/* ---- header ---- */
+header{padding:34px 0 10px}
+.tagline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 18px;
+  font-family:var(--elite);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faded);
+  border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:34px}
+
+h1{
+  font-family:var(--stencil);font-weight:700;text-transform:uppercase;
+  font-size:clamp(40px,10.5vw,104px);line-height:.88;letter-spacing:-.005em;
+  margin:0 0 6px;
+}
+h1 .small{display:block;font-size:.42em;letter-spacing:.06em;color:var(--faded);margin-bottom:10px}
+.subhead{
+  font-family:var(--stencil);font-weight:400;text-transform:uppercase;
+  font-size:clamp(15px,3.4vw,26px);letter-spacing:.12em;color:var(--stamp);margin:14px 0 0;
+}
+.meta{
+  margin-top:26px;padding-top:14px;border-top:3px double var(--rule);
+  display:flex;flex-wrap:wrap;gap:6px 30px;font-size:13px;letter-spacing:.04em;
+}
+.meta b{font-weight:700}
+
+/* ---- sections ---- */
+section{padding:52px 0;border-top:1px solid var(--rule)}
+h2{
+  font-family:var(--stencil);font-weight:700;text-transform:uppercase;
+  font-size:clamp(24px,5.4vw,40px);line-height:1;letter-spacing:.02em;margin:0 0 18px;
+}
+p{margin:0 0 15px;max-width:66ch}
+.big{font-size:18px}
+
+/* ---- countdown ---- */
+.clock{background:var(--paper-hi);border:3px solid var(--ink);padding:24px 18px;text-align:center}
+.clock .cap{font-family:var(--elite);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faded);margin-bottom:16px}
+.digits{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.unit{min-width:68px}
+.unit .n{font-family:var(--stencil);font-weight:700;font-size:clamp(34px,9vw,58px);line-height:1;display:block}
+.unit .u{font-family:var(--elite);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faded)}
+.clock .when{margin-top:16px;font-size:13px;color:var(--faded);letter-spacing:.05em}
+
+/* ---- manifest / redactions ---- */
+.doc{background:var(--paper-hi);border:1px solid var(--rule);padding:22px 18px;margin-top:20px}
+.doc h3{font-family:var(--stencil);font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:.14em;margin:0 0 4px;color:var(--faded)}
+.row{display:flex;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.row:last-child{border-bottom:none}
+.row .idx{font-family:var(--elite);color:var(--faded);font-size:11px;letter-spacing:.1em;min-width:26px}
+.row .body{flex:1;min-width:0}
+.row .tail{font-family:var(--elite);font-size:11px;letter-spacing:.12em;color:var(--faded);white-space:nowrap}
+
+.rd{
+  display:inline-block;background:var(--redact);color:transparent;
+  border:none;padding:0 .35em;margin:0;border-radius:1px;cursor:pointer;
+  font:inherit;line-height:inherit;vertical-align:baseline;
+  user-select:none;position:relative;
+}
+.rd::after{
+  content:"NOT YET";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--stencil);font-weight:700;font-size:9px;letter-spacing:.14em;color:var(--stamp);
+  opacity:0;transition:opacity .12s;
+}
+.rd.nope{animation:shake .32s}
+.rd.nope::after{opacity:1}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-3px)}40%{transform:translateX(3px)}
+  60%{transform:translateX(-2px)}80%{transform:translateX(2px)}
+}
+.open{font-weight:700;letter-spacing:.02em}
+.hint{font-family:var(--elite);font-size:11px;letter-spacing:.1em;color:var(--faded);margin-top:14px}
+
+/* ---- known list ---- */
+.known{list-style:none;padding:0;margin:18px 0 0}
+.known li{padding:12px 0 12px 30px;border-bottom:1px solid var(--rule);position:relative;font-size:15.5px;max-width:64ch}
+.known li:last-child{border-bottom:none}
+.known li::before{content:"▸";position:absolute;left:4px;color:var(--stamp);font-size:13px}
+
+/* ---- money ---- */
+.money{border:3px solid var(--ink);background:var(--paper-hi);padding:26px 20px;margin-top:20px}
+.fig{display:flex;flex-wrap:wrap;gap:22px 44px;margin:18px 0 6px}
+.fig div{min-width:130px}
+.fig .k{font-family:var(--elite);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faded);display:block}
+.fig .v{font-family:var(--stencil);font-weight:700;font-size:38px;line-height:1.1;display:block}
+
+/* ---- itemized bill ---- */
+.bill{margin:6px 0 0}
+.li{display:flex;align-items:baseline;gap:9px;padding:10px 0;font-size:14.5px}
+.li .desc{font-family:var(--type)}
+.li .dots{flex:1;border-bottom:1px dotted var(--rule);min-width:14px;transform:translateY(-4px)}
+.li .amt{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.li.total{border-top:3px double var(--rule);margin-top:10px;padding-top:16px}
+.li.total .desc,.li.total .amt{font-family:var(--stencil);font-weight:700;text-transform:uppercase;
+  font-size:clamp(18px,4.6vw,24px);letter-spacing:.04em;line-height:1.1}
+.li.due{color:var(--stamp)}
+.li.due .dots{border-bottom-color:rgba(158,43,32,.4)}
+.sched{margin-top:26px;padding-top:16px;border-top:1px solid var(--rule)}
+.sched .cap{font-family:var(--elite);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faded);margin-bottom:6px}
+.excl{margin-top:22px;font-family:var(--elite);font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--faded);line-height:1.9}
+
+/* ---- cta ---- */
+.cta{text-align:center;padding:12px 0 4px}
+.btn{
+  display:inline-block;font-family:var(--stencil);font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;font-size:clamp(19px,4.6vw,28px);
+  background:var(--stamp);color:var(--paper-hi);text-decoration:none;
+  padding:18px 34px;border:3px solid var(--stamp);
+  transition:background .15s,color .15s;
+}
+.btn:hover,.btn:focus{background:transparent;color:var(--stamp)}
+.sub{font-family:var(--elite);font-size:12px;letter-spacing:.1em;color:var(--faded);margin-top:16px}
+
+footer{padding:40px 0 64px;border-top:3px double var(--rule);
+  font-family:var(--elite);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faded);text-align:center;line-height:2}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="tagline">
+      <span>Dude Cup Command · El Presidente</span>
+      <span>Distribution: Roster Only</span>
+    </div>
+
+    <span class="stamp">Classified — Partial Release</span>
+
+    <h1 style="margin-top:22px">
+      <span class="small">The 6th Annual Dude Cup</span>
+      Battle<br>By The Bay
+    </h1>
+    <p class="subhead">San Francisco · The Pacific Coast · June 2027</p>
+
+    <div class="meta">
+      <span><b>DATES</b> &nbsp;06–10 JUN 2027</span>
+      <span><b>ROUNDS</b> &nbsp;5 + BONUS</span>
+      <span><b>ROSTER</b> &nbsp;16–24</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="big">Five tournament rounds on the Northern California coast, plus a bonus round on arrival day. A championship course in the city, then thirty-six holes a day on the cliffs above the Pacific.</p>
+    <p class="big">The format is entirely new this year, and it is built around teams. Nothing about it resembles what we have run before.</p>
+    <p class="big"><strong>You will not be picking your own team.</strong></p>
+    <p class="big" style="color:var(--stamp)"><strong>That's what we can tell you today.</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Roster closes</p>
+    <h2>Deposits Due</h2>
+    <p>Tee times, lodging and the field size all lock off the committed number. Courses on this coast are contracted a year out. If you're in, be in early.</p>
+
+    <div class="clock">
+      <div class="cap">Time remaining — 30 November 2026</div>
+      <div class="digits">
+        <div class="unit"><span class="n" id="d">--</span><span class="u">Days</span></div>
+        <div class="unit"><span class="n" id="h">--</span><span class="u">Hours</span></div>
+        <div class="unit"><span class="n" id="m">--</span><span class="u">Min</span></div>
+        <div class="unit"><span class="n" id="s">--</span><span class="u">Sec</span></div>
+      </div>
+      <div class="when" id="closed" hidden>The roster is closed.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Operational manifest</p>
+    <h2>Mostly Redacted</h2>
+    <p>Venues are contracted. Formats are written. Prizes are commissioned. You get one of each for now.</p>
+
+    <div class="doc">
+      <h3>Venues</h3>
+      <div class="row"><span class="idx">01</span><span class="body"><button class="rd" type="button">████████ ████ ██████</button></span><span class="tail">Sun · Bonus · 9</span></div>
+      <div class="row"><span class="idx">02</span><span class="body open">TPC HARDING PARK</span><span class="tail">Mon · 18</span></div>
+      <div class="row"><span class="idx">03</span><span class="body"><button class="rd" type="button">█████ ████ ███ ██████</button></span><span class="tail">Tue · 36</span></div>
+      <div class="row"><span class="idx">04</span><span class="body"><button class="rd" type="button">█████ ████ ███ ██████</button></span><span class="tail">Wed · 36</span></div>
+    </div>
+
+    <div class="doc">
+      <h3>The Five Tournament Rounds</h3>
+      <div class="row"><span class="idx">I</span><span class="body open">THE OPENER</span><span class="tail"><button class="rd" type="button">████████████</button></span></div>
+      <div class="row"><span class="idx">II</span><span class="body open">THE GRIND</span><span class="tail"><button class="rd" type="button">████████████</button></span></div>
+      <div class="row"><span class="idx">III</span><span class="body open">THE DUEL</span><span class="tail"><button class="rd" type="button">████████████</button></span></div>
+      <div class="row"><span class="idx">IV</span><span class="body open" style="color:var(--stamp)">THE TOLL</span><span class="tail"><button class="rd" type="button">████████████</button></span></div>
+      <div class="row"><span class="idx">V</span><span class="body open" style="color:var(--stamp)">THE CUP &nbsp;<span style="font-family:var(--elite);font-size:11px;letter-spacing:.1em">1.5×</span></span><span class="tail"><button class="rd" type="button">████████████</button></span></div>
+    </div>
+
+    <div class="doc">
+      <h3>Also In The File</h3>
+      <div class="row"><span class="idx">—</span><span class="body">Team selection by <button class="rd" type="button">████ ███████ █████</button></span><span class="tail"></span></div>
+      <div class="row"><span class="idx">—</span><span class="body">A rule that has never existed in this tournament: <button class="rd" type="button">███ ████</button></span><span class="tail"></span></div>
+      <div class="row"><span class="idx">—</span><span class="body">Champion's prize: <button class="rd" type="button">███ █████████ ██████</button></span><span class="tail"></span></div>
+      <div class="row"><span class="idx">—</span><span class="body">Every man receives <button class="rd" type="button">█ ████████ ██████████ █████████</button></span><span class="tail"></span></div>
+      <div class="row"><span class="idx">—</span><span class="body">One <button class="rd" type="button">███████████</button>, awarded Sunday. Keys for the coast road.</span><span class="tail"></span></div>
+    </div>
+
+    <p class="hint">↑ Go ahead. Tap one.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Unredacted</p>
+    <h2>What You Can Count On</h2>
+    <ul class="known">
+      <li><strong>Five tournament rounds, plus a bonus round on arrival day.</strong> The bonus costs you nothing but daylight — miss it and you've missed nothing that counts.</li>
+      <li><strong>Thirty-six holes on both Tuesday and Wednesday.</strong> Bring a second glove.</li>
+      <li><strong>It's a team competition, and you won't be picking your team.</strong> More on that in November.</li>
+      <li><strong>Handicapped throughout, capped.</strong> You do not need to be good. You need to show up with a current index.</li>
+      <li><strong>Nobody is out of it.</strong> There is more than one way to go home with something.</li>
+      <li><strong>Highway 1 from the city to the coast on Monday afternoon.</strong> Devil's Slide, Gray Whale Cove, the whole run.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">The math</p>
+    <h2>Your Odds Just Tripled</h2>
+
+    <div class="doc">
+      <div class="row"><span class="idx">2026</span><span class="body">One man against nineteen · $3,000 pot</span><span class="tail">1 in 20</span></div>
+      <div class="row"><span class="idx">2027</span><span class="body open">Six teams of four · $6,000 pot</span><span class="tail" style="color:var(--stamp)">1 in 6</span></div>
+    </div>
+
+    <p class="big" style="margin-top:22px">You stopped competing alone.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">The damage</p>
+    <h2>Money</h2>
+
+    <div class="money">
+      <div class="bill">
+        <div class="li"><span class="desc">Golf — 5 tournament rounds</span><span class="dots"></span><span class="amt">$1,010</span></div>
+        <div class="li"><span class="desc">Lodging — 4 nights, double occ.</span><span class="dots"></span><span class="amt">$640</span></div>
+        <div class="li"><span class="desc">Cup buy-in</span><span class="dots"></span><span class="amt">$250</span></div>
+        <div class="li total"><span class="desc">Total per man</span><span class="dots"></span><span class="amt">$1,900</span></div>
+      </div>
+
+      <div class="sched">
+        <div class="cap">Payment schedule</div>
+        <div class="li due"><span class="desc"><strong>Deposit — due 30 Nov 2026</strong></span><span class="dots"></span><span class="amt">$500</span></div>
+        <div class="li"><span class="desc">Balance — due 1 May 2027</span><span class="dots"></span><span class="amt">$1,400</span></div>
+      </div>
+
+      <p class="excl">Not included — Flights · Food · Vans · Sunday bonus round · Your bar tab<br>Figure another $800–1,100 all in</p>
+
+      <hr class="rule" style="margin:22px 0 18px">
+
+      <p style="margin-bottom:10px"><strong>I'm the bank this year for golf and lodging.</strong> One place, one ledger. These courses contract a year out and want money up front, and that's a lot easier coming from me than from twenty-four separate credit cards.</p>
+      <p style="margin-bottom:0">Harding Park is already locked. Everything else firms up before a dollar moves — and $250 of the total is the buy-in, which comes straight back to the room as the purse.</p>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:1px solid var(--rule)">
+  <div class="wrap cta">
+    <span class="stamp" style="transform:rotate(2deg);margin-bottom:24px">Sixteen minimum · Twenty-four max</span>
+    <h2 style="margin-top:22px">Get Your Name On The List</h2>
+    <p style="margin:0 auto 26px;max-width:46ch">Deposit holds your spot and locks the group rate. Roster order is deposit order. When it's full, it's full.</p>
+    <a class="btn" href="https://venmo.com/drewie?txn=pay&amount=500&note=Dude%20Cup%202027%20Deposit%20%E2%80%94%20Battle%20By%20The%20Bay">Send My $500 Deposit</a>
+    <p class="sub">Opens Venmo · <strong>@drewie</strong> · $500<br>
+    Send as <strong>friends &amp; family</strong> — not goods &amp; services</p>
+    <p class="sub" style="margin-top:14px">Full briefing declassified <strong>December 2026</strong></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    The Dude Cup · Battle By The Bay<br>
+    San Francisco &amp; The Pacific Coast · 06–10 June 2027<br>
+    By order of El Presidente
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---- countdown ----
+  var target = new Date("2026-11-30T23:59:59-07:00").getTime();
+  var D=document.getElementById('d'),H=document.getElementById('h'),
+      M=document.getElementById('m'),S=document.getElementById('s'),
+      closed=document.getElementById('closed');
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){
+    var left = target - Date.now();
+    if(left<=0){
+      D.textContent=H.textContent=M.textContent=S.textContent='00';
+      closed.hidden=false;
+      return;
+    }
+    var sec=Math.floor(left/1000);
+    D.textContent=pad(Math.floor(sec/86400));
+    H.textContent=pad(Math.floor(sec%86400/3600));
+    M.textContent=pad(Math.floor(sec%3600/60));
+    S.textContent=pad(sec%60);
+  }
+  tick(); setInterval(tick,1000);
+
+  // ---- redactions refuse to budge ----
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.rd');
+    if(!b) return;
+    b.classList.remove('nope');
+    void b.offsetWidth;
+    b.classList.add('nope');
+    setTimeout(function(){b.classList.remove('nope');}, 900);
+  });
+})();
+</script>
+</body>
+</html>
