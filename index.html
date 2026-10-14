@@ -103,6 +103,17 @@ p{margin:0 0 15px;max-width:66ch}
 .unit .u{font-family:var(--elite);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faded)}
 .clock .when{margin-top:16px;font-size:13px;color:var(--faded);letter-spacing:.05em}
 
+/* ---- roster tally ---- */
+.tally{background:var(--paper-hi);border:3px solid var(--ink);padding:22px 18px;margin-top:18px;text-align:center}
+.tally .cap{font-family:var(--elite);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faded);margin-bottom:14px}
+.tally .count{font-family:var(--stencil);font-weight:700;font-size:clamp(30px,8vw,50px);line-height:1;margin-bottom:16px}
+.tally .count em{font-style:normal;color:var(--faded)}
+.boxes{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:310px;margin:0 auto}
+.boxes i{width:20px;height:24px;border:2px solid var(--ink);display:block}
+.boxes i.on{background:var(--ink)}
+.boxes i.hold{border-style:dashed;border-color:var(--stamp)}
+.tally .key{font-family:var(--elite);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faded);margin-top:14px}
+
 /* ---- manifest / redactions ---- */
 .doc{background:var(--paper-hi);border:1px solid var(--rule);padding:22px 18px;margin-top:20px}
 .doc h3{font-family:var(--stencil);font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:.14em;margin:0 0 4px;color:var(--faded)}
@@ -145,6 +156,15 @@ p{margin:0 0 15px;max-width:66ch}
 .fig div{min-width:130px}
 .fig .k{font-family:var(--elite);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faded);display:block}
 .fig .v{font-family:var(--stencil);font-weight:700;font-size:38px;line-height:1.1;display:block}
+
+/* ---- course blocks ---- */
+.course{border-top:1px solid var(--rule);padding:26px 0 4px}
+.course:first-of-type{border-top:3px double var(--rule)}
+.course .when{font-family:var(--elite);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--stamp);margin-bottom:6px}
+.course h3{font-family:var(--stencil);font-weight:700;text-transform:uppercase;
+  font-size:clamp(20px,4.6vw,30px);line-height:1.05;letter-spacing:.02em;margin:0 0 4px}
+.course .sub{font-family:var(--elite);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faded);margin:0 0 14px}
+.course p{margin:0 0 13px}
 
 /* ---- recon footage ---- */
 .vid{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--ink);background:#000;margin-top:18px}
@@ -194,7 +214,7 @@ footer{padding:40px 0 64px;border-top:3px double var(--rule);
       <span>Distribution: Roster Only</span>
     </div>
 
-    <span class="stamp">Classified — Partial Release</span>
+    <span class="stamp">Venues Declassified · 14 Oct 2026</span>
 
     <h1 style="margin-top:22px">
       <span class="small">The 6th Annual Dude Cup</span>
@@ -205,17 +225,18 @@ footer{padding:40px 0 64px;border-top:3px double var(--rule);
     <div class="meta">
       <span><b>DATES</b> &nbsp;06–10 JUN 2027</span>
       <span><b>ROUNDS</b> &nbsp;5 + BONUS</span>
-      <span><b>ROSTER</b> &nbsp;16–24</span>
+      <span><b>HOLES</b> &nbsp;90</span>
+      <span><b>COURSES</b> &nbsp;4</span>
     </div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <p class="big">Five tournament rounds on the Northern California coast, plus a bonus round on the way to the airport. A championship course in the city, then thirty-six holes a day on the cliffs above the Pacific.</p>
+    <p class="big"><strong>Every course is booked. Every contract is signed.</strong> Ninety holes of tournament golf in four days, across four courses — a PGA Championship venue in the city, then thirty-six holes a day on the cliffs above the Pacific.</p>
     <p class="big">The format is entirely new this year, and it is built around teams. Nothing about it resembles what we have run before.</p>
     <p class="big"><strong>You will not be picking your own team.</strong></p>
-    <p class="big" style="color:var(--stamp)"><strong>That's what we can tell you today.</strong></p>
+    <p class="big" style="color:var(--stamp)"><strong>The courses are below. The rest stays sealed until December.</strong></p>
   </div>
 </section>
 
@@ -235,21 +256,34 @@ footer{padding:40px 0 64px;border-top:3px double var(--rule);
       </div>
       <div class="when" id="closed" hidden>The roster is closed.</div>
     </div>
+
+    <div class="tally">
+      <div class="cap">Roster status</div>
+      <div class="count">8 <em>/ 24 PAID</em></div>
+      <div class="boxes">
+        <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+        <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+        <i class="hold"></i><i class="hold"></i><i class="hold"></i><i class="hold"></i>
+        <i class="hold"></i><i class="hold"></i><i class="hold"></i><i class="hold"></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="key">Filled = deposit received · Dashed = spoken for, unpaid · Empty = open</div>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <p class="label">Operational manifest</p>
-    <h2>Mostly Redacted</h2>
-    <p>All four venues are contracted and signed. The formats are written. The prizes are commissioned. You get one venue and five round names for now.</p>
+    <h2>The Courses</h2>
+    <p>All four are contracted and signed. This is the part we can hand over.</p>
 
     <div class="doc">
-      <h3>Venues</h3>
-      <div class="row"><span class="idx">01</span><span class="body"><button class="rd" type="button">████████ ████ ██████</button></span><span class="tail">Thu · Bonus</span></div>
-      <div class="row"><span class="idx">02</span><span class="body open">TPC HARDING PARK</span><span class="tail">Mon · 18</span></div>
-      <div class="row"><span class="idx">03</span><span class="body"><button class="rd" type="button">█████ ████ ███ ██████</button></span><span class="tail">Tue · 36</span></div>
-      <div class="row"><span class="idx">04</span><span class="body"><button class="rd" type="button">█████ ████ ███ ██████</button></span><span class="tail">Wed · 36</span></div>
+      <h3>Venues — Declassified</h3>
+      <div class="row"><span class="idx">01</span><span class="body open">TPC HARDING PARK</span><span class="tail">Mon · 18</span></div>
+      <div class="row"><span class="idx">02</span><span class="body open">HALF MOON BAY — OCEAN COURSE</span><span class="tail">Tue AM · Wed PM</span></div>
+      <div class="row"><span class="idx">03</span><span class="body open">HALF MOON BAY — OLD COURSE</span><span class="tail">Tue PM · Wed AM</span></div>
+      <div class="row"><span class="idx">04</span><span class="body open">SHARP PARK</span><span class="tail">Thu · Bonus</span></div>
     </div>
 
     <div class="doc">
@@ -276,19 +310,71 @@ footer{padding:40px 0 64px;border-top:3px double var(--rule);
 
 <section>
   <div class="wrap">
-    <p class="label">Visual recon · venue 02</p>
-    <h2>TPC Harding Park</h2>
-    <p>Cypress corridors on Lake Merced, and the only venue on the manifest we're prepared to name. Host of the 2020 PGA Championship, the 2015 WGC Match Play and the 2009 Presidents Cup.</p>
+    <p class="label">Where you're playing</p>
+    <h2>Ninety Holes</h2>
 
-    <div class="vid">
-      <iframe src="https://www.youtube-nocookie.com/embed/dsl-VkqQizg?rel=0"
-              title="TPC Harding Park" loading="lazy" allowfullscreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <div class="course">
+      <div class="when">Monday 07 June · 18 holes · Round I</div>
+      <h3>TPC Harding Park</h3>
+      <p class="sub">San Francisco · Lake Merced</p>
+      <p>Cypress corridors on the edge of Lake Merced, and a genuine championship venue — <strong>host of the 2020 PGA Championship, the 2015 WGC Match Play and the 2009 Presidents Cup.</strong> Tiger has won here. So has Collin Morikawa.</p>
+      <p>We go off between 10:00 and 10:50, six groups, consecutive. Carts and range balls are included, and it's the only course all week with a full practice range — so warm up while you can.</p>
+
+      <div class="vid">
+        <iframe src="https://www.youtube-nocookie.com/embed/dsl-VkqQizg?rel=0"
+                title="TPC Harding Park" loading="lazy" allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="vidcap">
+        <span>Visual recon · venue 01</span>
+        <span>Then we drive Highway 1 to the coast</span>
+      </div>
     </div>
-    <div class="vidcap">
-      <span>Monday 07 Jun · 18 holes</span>
-      <span>Three venues remain classified</span>
+
+    <div class="course">
+      <div class="when">Tuesday AM · Wednesday PM · 36 holes</div>
+      <h3>Half Moon Bay — Ocean Course</h3>
+      <p class="sub">Arthur Hills · Scottish links</p>
+      <p>Fifteen holes of buildup on the bluffs, then three of the best closing holes in California: an elevated 16th, a <strong>blufftop par-3 17th that people compare to Pebble's 7th</strong>, and an oceanside par-5 18th that finishes at the foot of the Ritz-Carlton.</p>
+      <p>You'll see it Tuesday morning. <strong>It decides the Cup on Wednesday evening.</strong></p>
     </div>
+
+    <div class="course">
+      <div class="when">Tuesday PM · Wednesday AM · 36 holes</div>
+      <h3>Half Moon Bay — Old Course</h3>
+      <p class="sub">Palmer &amp; Duane, 1973 · parkland</p>
+      <p>The inland one. Weaves through cypress and meadow with water in play and a run of real doglegs — more sheltered than the Ocean when the afternoon wind comes up, and a completely different examination.</p>
+      <p>Hole-to-hole variety is the point here. <strong>One of the five rounds depends on it entirely</strong>, and that's all we'll say for now.</p>
+    </div>
+
+    <div class="course">
+      <div class="when">Thursday 10 June · Optional · No Cup points</div>
+      <h3>Sharp Park</h3>
+      <p class="sub">Alister MacKenzie, 1932 · Pacifica</p>
+      <p>The bonus round, on the way to the airport. <strong>An Alister MacKenzie seaside links — same architect as Augusta National and Cypress Point — and the only public oceanside MacKenzie course in the United States.</strong> Twelve of the eighteen are still his original routing. They've called it the Poor Man's Pebble Beach for seventy years.</p>
+      <p>Tee off at 8, at SFO by 1:15. Pay your own way, about $100. <strong>If you want in, book a flight departing 3:00 PM or later.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Before you book</p>
+    <h2>Flights</h2>
+    <p>Two numbers. Book around them and you won't miss anything.</p>
+
+    <div class="doc">
+      <h3>SFO</h3>
+      <div class="row"><span class="idx">IN</span><span class="body open">Sunday 06 June — land by 3:00 PM</span><span class="tail">Arrival</span></div>
+      <div class="row"><span class="idx">OUT</span><span class="body open">Thursday 10 June — depart after 3:00 PM</span><span class="tail">If you play Thursday</span></div>
+      <div class="row"><span class="idx">OUT</span><span class="body open">Thursday 10 June — depart any time</span><span class="tail">If you don't</span></div>
+    </div>
+
+    <ul class="known">
+      <li><strong>Sunday night starts at 5:00 and runs long.</strong> It's the one night of the week you can — Monday's first tee isn't until 10:00 AM.</li>
+      <li><strong>Landing late?</strong> Drop your bag and meet us in North Beach. We'll be there until they close.</li>
+      <li><strong>Thursday morning, Half Moon Bay is about 35 minutes from SFO.</strong> Build in a little more than you think if you're flying early.</li>
+    </ul>
   </div>
 </section>
 
@@ -297,7 +383,7 @@ footer{padding:40px 0 64px;border-top:3px double var(--rule);
     <p class="label">Unredacted</p>
     <h2>What You Can Count On</h2>
     <ul class="known">
-      <li><strong>Five tournament rounds, plus an optional sixth on Thursday morning.</strong> It counts for nothing and you pay your own way — about $100. We're off the course by one. <strong>If you want in, book a flight departing 3:00 PM or later.</strong></li>
+      <li><strong>Ninety holes of tournament golf across five rounds</strong>, plus the optional sixth on Thursday. Every round counts toward the Cup except Thursday.</li>
       <li><strong>Thirty-six holes on both Tuesday and Wednesday.</strong> Bring a second glove.</li>
       <li><strong>It's a team competition, and you won't be picking your team.</strong> More on that in November.</li>
       <li><strong>Handicapped throughout, capped.</strong> You do not need to be good. You need to show up with a current index.</li>
@@ -346,16 +432,16 @@ footer{padding:40px 0 64px;border-top:3px double var(--rule);
       <hr class="rule" style="margin:22px 0 18px">
 
       <p style="margin-bottom:10px"><strong>I'm the bank this year for golf and lodging.</strong> One place, one ledger. These courses contract a year out and want money up front, and that's a lot easier coming from me than from twenty-four separate credit cards.</p>
-      <p style="margin-bottom:0">Every venue on the manifest is now contracted — the ones still blacked out included. $250 of the total is the buy-in, which comes straight back to the room as the purse, and the $100 covers what every man takes home.</p>
+      <p style="margin-bottom:0">All four courses are contracted and the hotels are signed — the money is already committed on your behalf. $250 of the total is the buy-in, which comes straight back to the room as the purse, and the $100 covers what every man takes home.</p>
     </div>
   </div>
 </section>
 
 <section style="border-bottom:1px solid var(--rule)">
   <div class="wrap cta">
-    <span class="stamp" style="transform:rotate(2deg);margin-bottom:24px">Sixteen minimum · Twenty-four max</span>
+    <span class="stamp" style="transform:rotate(2deg);margin-bottom:24px">Eight paid · Sixteen spots open</span>
     <h2 style="margin-top:22px">Get Your Name On The List</h2>
-    <p style="margin-bottom:26px">Deposit holds your spot and locks the group rate. Roster order is deposit order. When it's full, it's full.</p>
+    <p style="margin-bottom:26px">The courses are booked and paid for. Your deposit holds your spot and locks the group rate. Roster order is deposit order — when it's full, it's full.</p>
     <a class="btn" href="https://venmo.com/drewie?txn=pay&amount=500&note=Dude%20Cup%202027%20Deposit%20%E2%80%94%20Battle%20By%20The%20Bay">Send My $500 Deposit</a>
     <p class="sub">Opens Venmo · <strong>@drewie</strong> · $500<br>
     Send as <strong>friends &amp; family</strong> — not goods &amp; services</p>
